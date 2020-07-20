@@ -2,6 +2,7 @@ package com.dhis.surveillance.controller;
 
 import com.dhis.surveillance.service.InfoService;
 import com.dhis.surveillance.vo.DataVO;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,8 +20,9 @@ public class InfoController {
     }
     @RequestMapping("/init")
     @ResponseBody
-    public List<DataVO> queryList(){
+    public String queryList(){
         List<DataVO> queryList = infoService.queryList();
-        return queryList;
+        String jsonResult = new Gson().toJson(queryList);
+        return jsonResult;
     }
 }
