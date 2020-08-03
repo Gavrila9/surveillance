@@ -123,7 +123,7 @@
             l = r("8c4f");
         n["default"].use(l["a"]);
         var p = [{
-            path: "/static", name: "Home", component: function (e) {
+            path: "/", name: "Home", component: function (e) {
                 return r.e("chunk-3dcff46b").then(function () {
                     var t = [r("2664")];
                     e.apply(null, t)
@@ -138,14 +138,14 @@
             }, meta: {footer: !0, server: !0, login: !0}
         }, {
             path: "/charts", name: "charts", component: function (e) {
-                return Promise.all([r.e("chunk-add4e780"), r.e("chunk-2987ec0a")]).then(function () {
+                return Promise.all([r.e("chunk-4419acce"), r.e("chunk-2987ec0a")]).then(function () {
                     var t = [r("2d76")];
                     e.apply(null, t)
                 }.bind(this)).catch(r.oe)
             }, meta: {footer: !0, server: !0, login: !0}
         }, {
             path: "/map", name: "map", component: function (e) {
-                return r.e("chunk-add4e780").then(function () {
+                return r.e("chunk-4419acce").then(function () {
                     var t = [r("d182")];
                     e.apply(null, t)
                 }.bind(this)).catch(r.oe)

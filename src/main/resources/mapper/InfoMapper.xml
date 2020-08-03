@@ -3,6 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dhis.surveillance.dao.InfoMapper">
     <select id="queryList" resultType="com.dhis.surveillance.vo.DataVO">
-        select s.name, s.province, s.city, s.longitude, s.latitude, s.status, s.confirmed_date, s.cure_date, s.death_date from surveillance_system_data s
+        select s.name, s.province, s.city, s.longitude, s.latitude, s.status, s.confirmed_date, s.cure_date, s.death_date, s.sex, s.age from surveillance_system_data s
+    </select>
+    <select id="current_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where status = 'confirmed'
+    </select>
+    <select id="total_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where status = 'confirmed' or status = 'cured'
+    </select>
+    <select id="cured_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where status = 'cured'
+    </select>
+    <select id="suspend_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where status = 'suspend'
+    </select>
+    <select id="death_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where status = 'death'
+    </select>
+    <select id="cords" resultType="java.util.Map" parameterType="java.lang.String">
+        select s.longitude, s.latitude from surveillance_system_data s
     </select>
 </mapper>

@@ -10,6 +10,8 @@ public class DataVO {
     private String confirmed_date;
     private String cure_date;
     private String death_date;
+    private String sex;
+    private int age;
 
     public void setName(String name) {
         this.name = name;
@@ -83,7 +85,23 @@ public class DataVO {
         this.latitude = latitude;
     }
 
-    public DataVO(String name, String province, String city, String status, String longitude, String latitude, String confirmed_date, String cure_date, String death_date) {
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public DataVO(String name, String province, String city, String status, String longitude, String latitude, String confirmed_date, String cure_date, String death_date, String sex, int age) {
         this.name = name;
         this.province = province;
         this.city = city;
@@ -93,5 +111,7 @@ public class DataVO {
         this.confirmed_date = confirmed_date;
         this.cure_date = cure_date;
         this.death_date = death_date;
+        this.sex = sex;
+        this.age = age;
     }
 }
