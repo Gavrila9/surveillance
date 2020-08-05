@@ -13,7 +13,7 @@ public interface InfoMapper {
    int current_infection_cases();
    int total_infection_cases();
    int cured_infection_cases();
-   int suspend_infection_cases();
+   int suspected_infection_cases();
    int death_infection_cases();
    List<Map> cords();
 }

@@ -14,7 +14,7 @@
     <select id="cured_infection_cases" resultType="java.lang.Integer">
         select count(1) from surveillance_system_data where status = 'cured'
     </select>
-    <select id="suspend_infection_cases" resultType="java.lang.Integer">
+    <select id="suspected_infection_cases" resultType="java.lang.Integer">
         select count(1) from surveillance_system_data where status = 'suspend'
     </select>
     <select id="death_infection_cases" resultType="java.lang.Integer">

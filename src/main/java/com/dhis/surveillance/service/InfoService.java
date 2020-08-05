@@ -24,7 +24,7 @@ public class InfoService {
         detailMap.put("Current infection cases",infoMapper.current_infection_cases());
         detailMap.put("Total infection cases",infoMapper.total_infection_cases());
         detailMap.put("Cured infection cases",infoMapper.cured_infection_cases());
-        detailMap.put("Suspend infection cases",infoMapper.suspend_infection_cases());
+        detailMap.put("Suspected infection cases",infoMapper.suspected_infection_cases());
         detailMap.put("Death infection cases",infoMapper.death_infection_cases());
         detailMap.put("Current cases cords",infoMapper.cords());
         return detailMap;
