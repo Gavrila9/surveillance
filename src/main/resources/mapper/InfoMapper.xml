@@ -9,7 +9,7 @@
         select count(1) from surveillance_system_data where status = 'confirmed'
     </select>
     <select id="total_infection_cases" resultType="java.lang.Integer">
-        select count(1) from surveillance_system_data where status = 'confirmed' or status = 'cured'
+        select count(1) from surveillance_system_data where status = 'confirmed' or status = 'cured' or status='death'
     </select>
     <select id="cured_infection_cases" resultType="java.lang.Integer">
         select count(1) from surveillance_system_data where status = 'cured'
@@ -20,7 +20,23 @@
     <select id="death_infection_cases" resultType="java.lang.Integer">
         select count(1) from surveillance_system_data where status = 'death'
     </select>
+    <select id="female_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where sex = 'male'
+    </select>
+    <select id="male_infection_cases" resultType="java.lang.Integer">
+        select count(1) from surveillance_system_data where sex = 'female'
+    </select>
     <select id="cords" resultType="java.util.Map" parameterType="java.lang.String">
         select s.longitude, s.latitude from surveillance_system_data s
     </select>
+    <select id="everyday_infection_cases" resultType="java.util.Map" parameterType="java.lang.String">
+        select DATE_FORMAT(confirmed_date,'%Y-%m-%d') as date,count(*) as count from surveillance_system_data where status = 'confirmed' group by date order by date asc
+    </select>
+    <select id="everyday_death_cases" resultType="java.util.Map" parameterType="java.lang.String">
+        select DATE_FORMAT(death_date,'%Y-%m-%d') as date,count(*) as count from surveillance_system_data where status = 'death' group by date order by date asc
+    </select>
+    <select id="everyday_cured_cases" resultType="java.util.Map" parameterType="java.lang.String">
+        select DATE_FORMAT(cure_date,'%Y-%m-%d') as date,count(*) as count from surveillance_system_data where status = 'cured' group by date order by date asc
+    </select>
+
 </mapper>

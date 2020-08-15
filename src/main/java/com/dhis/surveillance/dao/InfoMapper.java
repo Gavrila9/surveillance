@@ -15,5 +15,10 @@ public interface InfoMapper {
    int cured_infection_cases();
    int suspected_infection_cases();
    int death_infection_cases();
+   int male_infection_cases();
+   int female_infection_cases();
    List<Map> cords();
+   List<Map> everyday_infection_cases();
+   List<Map> everyday_death_cases();
+   List<Map> everyday_cured_cases();
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dhis.surveillance.dao.UserMapper">
+    <select id="findUserById" resultType="com.dhis.surveillance.vo.User">
+        select s.userid, s.username, s.password, s.role, s.email from user s where s.userid = #{userId}
+    </select>
+    <select id="findUserByName" resultType="com.dhis.surveillance.vo.User">
+        select s.userid, s.username, s.password, s.role, s.email from user s where s.username = #{userName}
+    </select>
+    <select id="findUserByEmail" resultType="com.dhis.surveillance.vo.User">
+        select s.userid, s.username, s.password, s.role, s.email from user s where s.email = #{email}
+    </select>
+    <insert id="register" parameterType="com.dhis.surveillance.vo.User">
+        insert into user (username, password, role, email) values (#{username},#{password},#{role},#{email})
+    </insert>
+</mapper>
