@@ -13,4 +13,8 @@ public class JWTservice {
                 .sign(Algorithm.HMAC256(user.getPassword()));
         return token;
     }
+    public String delToken() {
+        String token="";
+        return token;
+    }
 }

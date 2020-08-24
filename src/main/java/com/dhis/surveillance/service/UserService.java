@@ -39,7 +39,7 @@ public class UserService {
         }else{
             userMapper.register(user);
             Map detailMap = new HashMap();
-            detailMap.put("message","registered");
+            detailMap.put("message","registered success");
             String jsonResult = new Gson().toJson(detailMap);
             return jsonResult;
         }
@@ -62,11 +62,27 @@ public class UserService {
                 String token = jwTservice.getToken(user4verify);
                 Map detailMap = new HashMap();
                 detailMap.put("token",token);
-                detailMap.put("user",user4verify);
+                detailMap.put("username",user4verify.getUsername());
                 detailMap.put("message","login success");
                 String jsonResult = new Gson().toJson(detailMap);
                 return jsonResult;
             }
         }
     }
+    public String loginOut(String userName){
+        User user4verify = userMapper.findUserByName(userName);
+        if(user4verify==null){
+            Map detailMap = new HashMap();
+            detailMap.put("message","Login out fail, user have not login");
+            String jsonResult = new Gson().toJson(detailMap);
+            return jsonResult;
+        }else{
+                String token = jwTservice.delToken();
+                Map detailMap = new HashMap();
+                detailMap.put("userName",user4verify.getUsername());
+                detailMap.put("message","loginOut success");
+                String jsonResult = new Gson().toJson(detailMap);
+                return jsonResult;
+            }
+        }
 }

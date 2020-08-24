@@ -21,4 +21,10 @@ public class LoginController {
                         @RequestParam(name = "password") String password){
         return userService.login(userName,password);
     }
+
+    @RequestMapping("/loginOut")
+    @ResponseBody
+    public String loginOut(@RequestParam(name = "userName") String userName){
+        return userService.loginOut(userName);
+    }
 }
