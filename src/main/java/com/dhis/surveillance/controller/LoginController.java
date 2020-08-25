@@ -22,9 +22,9 @@ public class LoginController {
         return userService.login(userName,password);
     }
 
-    @RequestMapping("/loginOut")
+    @RequestMapping("/logOut")
     @ResponseBody
     public String loginOut(@RequestParam(name = "userName") String userName){
-        return userService.loginOut(userName);
+        return userService.logOut(userName);
     }
 }

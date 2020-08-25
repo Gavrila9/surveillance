@@ -69,7 +69,7 @@ public class UserService {
             }
         }
     }
-    public String loginOut(String userName){
+    public String logOut(String userName){
         User user4verify = userMapper.findUserByName(userName);
         if(user4verify==null){
             Map detailMap = new HashMap();
@@ -80,7 +80,7 @@ public class UserService {
                 String token = jwTservice.delToken();
                 Map detailMap = new HashMap();
                 detailMap.put("userName",user4verify.getUsername());
-                detailMap.put("message","loginOut success");
+                detailMap.put("message","logOut success");
                 String jsonResult = new Gson().toJson(detailMap);
                 return jsonResult;
             }
