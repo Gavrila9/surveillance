@@ -20,7 +20,7 @@ public class InfoController {
     @LoginToken
     @RequestMapping("/")
     public String index(){
-        return "/index.html";
+        return "Hello World";
     }
     @LoginToken
     @RequestMapping("/init")
